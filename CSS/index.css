@@ -1,0 +1,267 @@
+body{
+    background-color: rgb(227,227,0);
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+    overflow-x:hidden;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+}
+
+.pages{
+    width: 100%;
+    height: 91vh;
+    border: none;
+}
+
+.sliderContainer{
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(0%);
+    transition: all 0.5s;
+}
+
+@media screen and (max-width: 800px){
+    .sliderContainer{height: 100vh;}
+}
+
+.buttonSliderContainer{
+    position: fixed;
+    bottom: 1%;
+    width: 100%;
+    height: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    opacity: 0;
+}
+
+.buttonSliderVisible{
+    opacity: 1;
+}
+
+.buttonSlider{
+    width: 2vh;
+    height: 2vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-left: 0.5vh;
+    margin-right: 0.5vh;
+    border: solid 2px rgba(0, 0, 0, 0.145);
+}
+
+.subPages{
+    border: none;
+    width: 100%;
+    height: 100vh;
+}
+
+.avisoCookies{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+}
+
+.avisoCookies-texto{
+    background-image: url('/img/cookies/Recurso 84.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 65%;
+    cursor: pointer;
+}
+
+.avisoCookies-botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 35%;
+}
+
+.avisoCookies-botones-aceptar{
+    background-image: url('/img/cookies/Recurso 86.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50%;
+    width: 80%;
+    cursor: pointer;
+}
+
+.avisoCookies-botones-rechazar{
+    background-image: url('/img/cookies/Recurso 85.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50%;
+    width: 80%;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 800px){
+    main{height: 90vh;}
+    .pages{height: 90vh;}
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:hover {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(242, 255, 0, 0); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(242, 255, 0, 0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 225, 0, 0);
+}
+
+::-webkit-scrollbar-thumb:window-inactive:hover {
+    background: rgba(255, 225, 0, 0.3);
+}
+
+@media screen and (max-width: 800px){
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+/*###########AVISO COOKIES###########*/
+.avisoCookiesContainer{
+    position: fixed;
+    width: 100%;
+    background-color: rgb(86, 134, 218);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    bottom: 0;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.avisoCookies{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.avisoCookies .texto{
+    width: 60%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.avisoCookies .texto h1{
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.avisoCookies .texto h2{
+    font-size: 1.5rem;
+}
+
+.avisoCookies .texto ul{
+    margin: 0;
+}
+
+.avisoCookies .texto li{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.avisoCookiesContainer p{
+    color:white;
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.botones{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones button{
+    width: 90%;
+    height: 5vh;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.botones button:hover{
+    transform: scale(1.05);
+}
+
+.botones .ok{
+    background-color: rgb(227,227,0);
+    color: rgb(5, 5, 5);
+    border: rgb(227,227,0) solid 2px;
+}
+
+.botones .manageMyCookies{
+    background-color: rgb(86, 134, 218);
+    color: white;
+    border: white solid 2px;
+}
+
+@media screen and (max-width: 800px){
+    .avisoCookies .texto h1{ font-size: 2.5rem; }
+    .avisoCookies .texto h2{ font-size: 1.2rem; }
+    .avisoCookies .texto li{ font-size: 0.9rem; }
+    .avisoCookiesContainer p{ font-size: 1rem; }
+    .avisoCookies{ flex-direction: column; }
+    .avisoCookies .texto{ width: 95%; }
+    .botones{ width: 95%; }
+}

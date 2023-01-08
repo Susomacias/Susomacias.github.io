@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(255, 91, 91) !important;
+    width: 100%;
+}
+
+.awardeesContainer{
+    width: 100%;
+    height: 100vh;
+}
+
+.awardees{
+    background-image: url(./img/awardees.svg);
+    filter: drop-shadow(0px 5px 2px rgba(34, 34, 34, 0.5));
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: calc(100% - 48px);
+    height: 50%;
+    position: fixed;
+    top: 20px;
+    left: 24px;
+}
+
+.podium{
+    background-image: url(./img/podium.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    width: calc(100% - 160px);
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 80px;
+}
+
+/*media query 800px*/
+@media screen and (max-width: 800px) {
+    .awardees{
+        background-size: contain;
+        background-position: center;
+        height: 40%;
+    }
+
+    .podium{
+        background-size: contain;
+        background-position:center;
+        background-position-y: 0;
+        height: 70%;
+    }
+}

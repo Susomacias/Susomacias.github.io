@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>careers - PROMOTERS</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="../../../../CSS/index.css" />
+  <link rel="stylesheet" href="./formulario.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body ontouchmove="touchmove(event)">
+  <!-----------------------------ESCRITORIO----------------------------->
+  <main class="escritorio containerPaginaFormulario" id="containerPaginaFormulario">
+    <main class="fondo">
+      <div class="titulo" id="titulo"></div>
+      <div class="texto" id="texto"></div>
+      <div class="containerFormulario" id="containerFormulario">
+        <form class="formulario" id="formulario" action="/mail.php" method="post">
+          <input type="hidden" name="asunto" value="CARRERS PROMOTERS">
+
+          <!--INPUT DOBLE-->
+          <div class="inputDoble">
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">FIRST NAME<span class="asterisco" id="firstNameW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="firstName" id="firstName" required>
+            </div>
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">LAST NAME<span class="asterisco" id="lastNameW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="lastName" id="lastName" required>
+            </div>
+          </div>
+
+          <!--INPUT DOBLE-->
+          <div class="inputDoble">
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">COUNTRY OF RESIDENCE<span class="asterisco" id="countryW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="country" id="country" required>
+            </div>
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">CITY OF RESIDENCE<span class="asterisco" id="cityW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="city" id="city" required>
+            </div>
+          </div>
+
+          <!--INPUT DOBLE-->
+          <div class="inputDoble">
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">MOBILE<span class="asterisco" id="mobileW">*</span></div>
+              <input type="tel" placeholder="Your Answer" name="mobile" id="mobile" required>
+            </div>
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">EMAIL ADDRESS<span class="asterisco" id="emailW">*</span></div>
+              <input type="email" placeholder="Your Answer" name="email" id="email" required>
+            </div>
+          </div>
+
+          <!--INPUT CON WARNING-->
+          <div class="marcoInput marcoInputConWarning">
+            <div class="etiquetaInput">A SMALL DESCRIPTION ABOUT YOURSELF<span class="asterisco"
+                id="descriptionW">*</span></div>
+            <input type="text" placeholder="Your Answer" name="description" id="description" required>
+            <div class="warning" id="warning"></div>
+          </div>
+
+          <!--BOTON-->
+          <input class="boton" type="submit"
+            onclick="checkSubmit(['firstName', 'lastName', 'country', 'city', 'mobile', 'email', 'description'])">
+        </form>
+      </div>
+    </main>
+
+    <script>
+      if (window.innerWidth > 800) {
+        sizeElements();
+        //----------------
+        function checkSubmit(inputs) {
+          for (let input of inputs) {
+            let campo = document.getElementById(input).value;
+            if (campo === "") {
+              document.getElementById(input + "W").style.display = 'inline';
+              document.getElementById('warning').style.display = 'block';
+            }
+          }
+        }
+
+        async function sizeElements() {
+          let heightTitulo = await getProportionalHeight("titulo");
+          let texto = await getProportionalHeight("texto");
+          let containerFormulario = 100 - heightTitulo - texto - 5;
+          document.getElementById("titulo").style.height = heightTitulo + "%";
+          document.getElementById("texto").style.height = texto + "%";
+          document.getElementById("containerFormulario").style.height = containerFormulario + "%";
+
+          const body = document.getElementsByTagName("body")[0];
+
+          let resizeObserver = new ResizeObserver(() => {
+            let containerFormulario = document.getElementById("containerFormulario");
+            let formulario = document.getElementById("formulario");
+            if (containerFormulario.getBoundingClientRect().height !== formulario.offsetHeight) {
+              let escala = containerFormulario.getBoundingClientRect().height / formulario.offsetHeight;
+              formulario.style.transform = "scale(" + escala + ")";
+            }
+          });
+
+          resizeObserver.observe(body);
+        }
+
+        async function getProportionalHeight(imageName) {
+          let size = await getSizeSvg(imageName);
+          let imageHeight = parseFloat(size[1]);
+          let imageWidth = parseFloat(size[0]);
+          let containerHeight = document.getElementById("containerPaginaFormulario").offsetHeight;
+          let containerWidth = document.getElementById("containerPaginaFormulario").offsetWidth;
+
+          // Calcula la relación de aspecto de la imagen
+          let aspectRatio = imageHeight / imageWidth;
+
+          // Calcula el alto de la imagen en proporción al ancho de la pantalla
+          let height = aspectRatio * containerWidth;
+
+          // Calcula el porcentaje del alto de la imagen con respecto al alto de la pantalla
+          let percentage = (height / containerHeight) * 100;
+          return percentage + 0.5;
+        }
+
+        function getSizeSvg(imageName) {
+          return new Promise((resolve, reject) => {
+            fetch("./" + imageName + ".svg")
+              .then((response) => response.text())
+              .then((text) => {
+                // Busca las propiedades height y width en el código del archivo
+                const heightMatch = text.match(/height="([^"]+)"/);
+                const widthMatch = text.match(/width="([^"]+)"/);
+                if (heightMatch && widthMatch) {
+                  const height = heightMatch[1];
+                  const width = widthMatch[1];
+                  resolve([width, height]);
+                } else {
+                  console.error(
+                    "No se encontraron las propiedades height y width en el archivo SVG"
+                  );
+                  reject(
+                    new Error(
+                      "No se encontraron las propiedades height y width en el archivo SVG"
+                    )
+                  );
+                }
+              });
+          });
+        }
+      }
+    </script>
+
+  </main>
+
+  <!-----------------------------MOVIL----------------------------->
+  <main class="movil containerPaginaFormulario" id="containerPaginaFormulario">
+    <main class="fondo">
+      <div class="titulo" id="titulo"></div>
+      <div class="texto" id="texto"></div>
+      <div class="containerFormulario" id="containerFormulario">
+        <form class="formulario" id="formulario" action="/mail.php" method="post">
+          <input type="hidden" name="asunto" value="CARRERS PROMOTERS">
+
+          <!--INPUT DOBLE-->
+          <div class="inputDoble">
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">FIRST NAME<span class="asterisco" id="firstNameW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="firstName" id="firstName" required>
+            </div>
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">LAST NAME<span class="asterisco" id="lastNameW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="lastName" id="lastName" required>
+            </div>
+          </div>
+
+          <!--INPUT DOBLE-->
+          <div class="inputDoble">
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">COUNTRY OF RESIDENCE<span class="asterisco" id="countryW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="country" id="country" required>
+            </div>
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">CITY OF RESIDENCE<span class="asterisco" id="cityW">*</span></div>
+              <input type="text" placeholder="Your Answer" name="city" id="city" required>
+            </div>
+          </div>
+
+          <!--INPUT DOBLE-->
+          <div class="inputDoble">
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">MOBILE<span class="asterisco" id="mobileW">*</span></div>
+              <input type="tel" placeholder="Your Answer" name="mobile" id="mobile" required>
+            </div>
+            <div class="marcoInput marcoInputDoble">
+              <div class="etiquetaInput">EMAIL ADDRESS<span class="asterisco" id="emailW">*</span></div>
+              <input type="email" placeholder="Your Answer" name="email" id="email" required>
+            </div>
+          </div>
+
+          <!--INPUT CON WARNING-->
+          <div class="marcoInput marcoInputConWarning">
+            <div class="etiquetaInput">A SMALL DESCRIPTION ABOUT YOURSELF<span class="asterisco"
+                id="descriptionW">*</span></div>
+            <input type="text" placeholder="Your Answer" name="description" id="description" required>
+            <div class="warning" id="warning"></div>
+          </div>
+
+          <!--BOTON-->
+          <input class="boton" type="submit"
+            onclick="checkSubmit(['firstName', 'lastName', 'country', 'city', 'mobile', 'email', 'description'])">
+        </form>
+      </div>
+    </main>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      let scripts = document.getElementsByClassName("movil");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+    }
+
+    if (window.innerWidth < 800 || window.innerWidth === 800) {
+      let link = document.querySelector("link[href='./formulario.css']");
+      link.href = "./formulario_800.css";
+
+      let scripts = document.getElementsByClassName("escritorio");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //----------------------------------
+    }
+  </script>
+
+  <!----------------------------- GENERAL ----------------------------->
+  <script>
+    if (window.top == window) {
+      window.top.location = "/";
+    }
+
+    function touchmove(ev) {
+      window.parent.frameTouchMove(ev, 1, 3);
+    }
+  </script>
+</body>
+
+</html>

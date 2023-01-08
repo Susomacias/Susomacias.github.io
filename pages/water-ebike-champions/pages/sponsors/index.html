@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WATER EBIKE CHAMPIONS - SPONSORS</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="../../../../CSS/index.css" />
+  <link rel="stylesheet" href="./sponsors.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body ontouchmove="touchmove(event)">
+  <!-----------------------------ESCRITORIO----------------------------->
+  <main class="escritorio sponsorsContainer">
+    <div class="titulo"></div>
+    <div class="galeria">
+      <div class="sponsor" id="sponsor1" style="background-image:url('./img/sponsorsImg/1.jpg')"></div>
+      <div class="sponsor" id="sponsor2" style="background-image:url('./img/sponsorsImg/2.jpg')"></div>
+      <div class="sponsor" id="sponsor3" style="background-image:url('./img/sponsorsImg/3.jpg')"></div>
+      <div class="sponsor" id="sponsor4" style="background-image:url('./img/sponsorsImg/4.jpg')"></div>
+      <div class="sponsor" id="sponsor5" style="background-image:url('./img/sponsorsImg/5.jpg')"></div>
+    </div>
+    <div class="cifras">
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="a1">COUNTRIES</div>
+        <div class="numeroCifra" id="a2">2</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="b1">COUNTIES</div>
+        <div class="numeroCifra" id="b2">50+</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="c1">SUPPORTERS</div>
+        <div class="numeroCifra" id="c2">100+</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="d1">AUDIENCE</div>
+        <div class="numeroCifra" id="d2">20,000</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="e1">RAIDERS</div>
+        <div class="numeroCifra" id="e2">500+</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      //------------------------------
+      //Poner el alto resultante de cifra igual quel el ancho
+      let anchoCifra = document.getElementsByClassName("cifra")[0].offsetWidth;
+      let cifras = document.getElementsByClassName("cifra");
+
+      cifras = Array.from(cifras);
+      cifras.map(cifra => {
+        cifra.style.height = anchoCifra + "px";
+      });
+
+      //Poner el alto resultante del sponsor igual quel el ancho
+      let anchoSponsor = document.getElementsByClassName("sponsor")[0].offsetWidth;
+      let sponsors = document.getElementsByClassName("sponsor");
+
+      sponsors = Array.from(sponsors);
+      sponsors.map(sponsor => {
+        sponsor.style.height = anchoSponsor + "px";
+      });
+
+      checkPage();
+      setInterval('checkPage()', 250);
+
+      function checkPage() {
+        let url = window.parent.parent.location.href
+        url = url.replace()
+
+        if (url.includes('/water-ebike-champions/sponsors')) {
+          let isAnimated = localStorage.getItem("wecIsAnimated");
+
+          if (isAnimated !== "true") {
+            animacionContador()
+            localStorage.setItem("wecIsAnimated", "true");
+          }
+        } else {
+          localStorage.setItem("wecIsAnimated", "false");
+        }
+      }
+
+      const delay = ms => new Promise(res => setTimeout(res, ms));
+
+      function animacionContador() {
+        let a1 = document.getElementById('a1').innerText;
+        efectoContadorLetras(a1, 'a1');
+        let a2 = document.getElementById('a2').innerText;
+        efectoContadorNumeros(a2, 'a2');
+        let b1 = document.getElementById('b1').innerText;
+        efectoContadorLetras(b1, 'b1');
+        let b2 = document.getElementById('b2').innerText;
+        efectoContadorNumeros(b2, 'b2');
+        let c1 = document.getElementById('c1').innerText;
+        efectoContadorLetras(c1, 'c1');
+        let c2 = document.getElementById('c2').innerText;
+        efectoContadorNumeros(c2, 'c2');
+        let d1 = document.getElementById('d1').innerText;
+        efectoContadorLetras(d1, 'd1');
+        let d2 = document.getElementById('d2').innerText;
+        efectoContadorNumeros(d2, 'd2');
+        let e1 = document.getElementById('e1').innerText;
+        efectoContadorLetras(e1, 'e1');
+        let e2 = document.getElementById('e2').innerText;
+        efectoContadorNumeros(e2, 'e2');
+      }
+
+      async function efectoContadorLetras(c, id) {
+        cambios = 19;
+        for (let i = 0; i < cambios; i++) {
+          cambiarLetras(c, id)
+          await delay(150);
+        }
+
+        document.getElementById(id).innerText = c;
+      }
+
+      function cambiarLetras(c, id) {
+        nCaractes = c.length;
+        let letras = letrasAleatorias(nCaractes);
+        document.getElementById(id).innerText = letras;
+      }
+
+      function letrasAleatorias(num) {
+        const banco = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
+        let aleatoria = "";
+        for (let i = 0; i < num; i++) {
+          aleatoria += banco.charAt(Math.floor(Math.random() * banco.length));
+        }
+        return aleatoria;
+      }
+
+      async function efectoContadorNumeros(c, id) {
+        cambios = 19;
+        for (let i = 0; i < cambios; i++) {
+          cambiarNumeros(c, id)
+          await delay(150);
+        }
+
+        document.getElementById(id).innerText = c;
+      }
+
+      function cambiarNumeros(c, id) {
+        nCaractes = c.length;
+        let numeros = numerosAleatorios(nCaractes, c);
+        document.getElementById(id).innerText = numeros;
+      }
+
+      function numerosAleatorios(num, c) {
+        const banco = "0123456789";
+        let aleatoria = "";
+        for (let i = 0; i < num; i++) {
+          aleatoria += banco.charAt(Math.floor(Math.random() * banco.length));
+        }
+        if (c.includes("+")) {
+          aleatoria = "+" + aleatoria.slice(1);
+        }
+        return aleatoria;
+      }
+    }
+  </script>
+
+  <!-----------------------------MOVIL----------------------------->
+  <main class="movil sponsorsContainer">
+    <div class="titulo"></div>
+    <div class="galeria">
+      <div class="sponsor" id="sponsor1" style="background-image:url('./img/sponsorsImg/1.jpg')"></div>
+      <div class="sponsor" id="sponsor2" style="background-image:url('./img/sponsorsImg/2.jpg')"></div>
+      <div class="sponsor" id="sponsor3" style="background-image:url('./img/sponsorsImg/3.jpg')"></div>
+      <div class="sponsor" id="sponsor4" style="background-image:url('./img/sponsorsImg/4.jpg')"></div>
+      <div class="sponsor" id="sponsor5" style="background-image:url('./img/sponsorsImg/5.jpg')"></div>
+    </div>
+    <div class="cifras">
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="a1">COUNTRIES</div>
+        <div class="numeroCifra" id="a2">2</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="b1">COUNTIES</div>
+        <div class="numeroCifra" id="b2">50+</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="c1">SUPPORTERS</div>
+        <div class="numeroCifra" id="c2">100+</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="d1">AUDIENCE</div>
+        <div class="numeroCifra" id="d2">20,000</div>
+      </div>
+      <div class="cifra" id="cifra1">
+        <div class="textoCifra" id="e1">RAIDERS</div>
+        <div class="numeroCifra" id="e2">500+</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      let scripts = document.getElementsByClassName("movil");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+    }
+
+    if (window.innerWidth < 800 || window.innerWidth === 800) {
+      let link = document.querySelector("link[href='./sponsors.css']");
+      link.href = "./sponsors_800.css";
+
+      let scripts = document.getElementsByClassName("escritorio");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //------------------------------
+    }
+  </script>
+
+  <!----------------------------- GENERAL ----------------------------->
+  <script>
+    if (window.top == window) {
+      window.top.location = "/";
+    }
+    function touchmove(ev) {
+      window.parent.frameTouchMove(ev, 5, 6, "/water-ebike-champions/sponsors");
+    }
+  </script>
+</body>

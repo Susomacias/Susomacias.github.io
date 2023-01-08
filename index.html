@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Global WatersPort</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/CSS/index.css" />
+    <link rel="stylesheet" href="/CSS/navBar/navBar.css" />
+    <link rel="stylesheet" href="/CSS/navBar/navBar800.css" />
+    <script src="/func/nav.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+ 
+  <body onload="router(), checkCookies(), openHomeToLoadIntro()" ontouchmove="closeNavTactile(event)">
+
+    <div class="avisoCookiesContainer" id="avisoCookiesContainer">
+        <div class="avisoCookies"> 
+            <div class="avisoCookies-texto" onclick="redirectToUrl('/pages/cookies/')"></div>
+            <div class="avisoCookies-botones">
+                <div class="avisoCookies-botones-aceptar" onclick="cookiesAcept()"></div>
+                <div class="avisoCookies-botones-rechazar" onclick="cookiesAcept()"></div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+      <object class="pages" id="page" data="/pages/home#0-5"></object>
+    </main>
+    
+    <div class="NavBarBackground"></div>
+
+    <div class="NavBar">
+        <div class="NavBarContainer SocialContainer" id="SocialContainer">
+            <div class="NavBarButton SocialButton" id="SocialButton" onclick="navOpenSocial()"></div>
+            <div class="NavBarOptions SocialOptions" id="SocialOptions">
+
+                <div class="OptionContainer">
+                    <div class="LogoOption Facebook" onclick="redirectToUrl('https:\/\/www.facebook.com/aquatica.events')"></div>
+                </div>
+
+                <div class="OptionContainer">
+                    <div class="LogoOption TikTok" onclick="redirectToUrl('https:\/\/www.tiktok.com/@aquatica.events')"></div>
+                </div>
+
+                <div class="OptionContainer">
+                    <div class="LogoOption YouTube" onclick="redirectToUrl('https:\/\/www.youtube.com/@aquatica.events')"></div>
+                </div>
+
+                <div class="OptionContainer">
+                    <div class="LogoOption Instagram" onclick="redirectToUrl('https:\/\/www.instagram.com/aquatica.events')"></div>
+                </div>
+                  
+            </div>
+        </div>
+        <div class="NavBarContainer HomeContainer" id="HomeContainer">
+            <div class="NavBarButton HomeButton" id="HomeButton" onclick="NavOpenHome()"></div>
+            <div class="NavBarOptions HomeOptions" id="HomeOptions" onclick="">
+
+                <div class="OptionContainer Evento1 _water-cicling-training-center" id="Evento1" onclick="openLista('Evento1', 'top:18.4%')">
+                    <div class="ListaOption ListaEvento1">
+                        <div class="opcionLista opcionListaEvento1" id="/water-cicling-training-center/sponsors" onclick="redirectTo('/water-cicling-training-center/sponsors')">sponsors</div>
+                        <div class="opcionLista opcionListaEvento1" id="/water-cicling-training-center/photos" onclick="redirectTo('/water-cicling-training-center/photos')">photos</div>
+                        <div class="opcionLista opcionListaEvento1" id="/water-cicling-training-center/training-centers" onclick="redirectTo('/water-cicling-training-center/training-centers')">training centers</div>
+                        <div class="opcionLista opcionListaEvento1" id="/water-cicling-training-center/about" onclick="redirectTo('/water-cicling-training-center/about')">about</div>
+                    </div>
+                    <div class="LogoOption LogoEvento1"></div>
+                </div>
+
+                <div class="OptionContainer Evento2 _test-ride" id="Evento2" onclick="openLista('Evento2', 'top:36.4%')">
+                    <div class="ListaOption ListaEvento2">
+                        <div class="opcionLista opcionListaEvento2" id="/test-ride/sponsors" onclick="redirectTo('/test-ride/sponsors')">sponsors</div>
+                        <div class="opcionLista opcionListaEvento2" id="/test-ride/photos" onclick="redirectTo('/test-ride/photos')">photos</div>
+                        <div class="opcionLista opcionListaEvento2" id="/test-ride/experience-in" onclick="redirectTo('/test-ride/experience-in')">experience in</div>
+                        <div class="opcionLista opcionListaEvento2" id="/test-ride/about" onclick="redirectTo('/test-ride/about')">about</div>
+                    </div>
+                    <div class="LogoOption LogoEvento2"></div>
+                </div>
+
+                <div class="OptionContainer Evento3 _water-ebike-champions" id="Evento3" onclick="openLista('Evento3', 'top:54.3%')">
+                    <div class="ListaOption ListaEvento3">
+                        <div class="opcionLista opcionListaEvento3" id="/water-ebike-champions/sponsors" onclick="redirectTo('/water-ebike-champions/sponsors')">sponsors</div>
+                        <div class="opcionLista opcionListaEvento3" id="/water-ebike-champions/best-photos" onclick="redirectTo('/water-ebike-champions/best-photos')">best-photos</div>
+                        <div class="opcionLista opcionListaEvento3" id="/water-ebike-champions/rankings" onclick="redirectTo('/water-ebike-champions/rankings')">rankings</div>
+                        <div class="opcionLista opcionListaEvento3" id="/water-ebike-champions/registration" onclick="redirectTo('/water-ebike-champions/registration')">registration</div>
+                        <div class="opcionLista opcionListaEvento3" id="/water-ebike-champions/locations" onclick="redirectTo('/water-ebike-champions/locations')">locations</div>
+                        <div class="opcionLista opcionListaEvento3" id="/water-ebike-champions/about" onclick="redirectTo('/water-ebike-champions/about')">about</div>
+                    </div>
+                    <div class="LogoOption LogoEvento3"></div>
+                </div>
+
+                <div class="OptionContainer Evento4 _hall-of-fame" id="Evento4" onclick="openLista('Evento4', 'top:72.3%')">
+                    <div class="ListaOption ListaEvento4">
+                        <div class="opcionLista opcionListaEvento4" id="/hall-of-fame/sport-legends" onclick="redirectTo('/hall-of-fame/sport-legends')">sport legends</div>
+                        <div class="opcionLista opcionListaEvento4" id="/hall-of-fame/about" onclick="redirectTo('/hall-of-fame/about')">about</div>
+                    </div>
+                    <div class="LogoOption LogoEvento4"></div>
+                </div>
+
+                <div class="OptionContainer Evento5 _world-water-cicling-awards" id="Evento5" onclick="openLista('Evento5', 'bottom:28%')">
+                    <div class="ListaOption ListaEvento5">
+                         <div class="opcionLista opcionListaEvento5" id="/world-water-cicling-awards/sponsors" onclick="redirectTo('/world-water-cicling-awards/sponsors')">sponsors</div>
+                         <div class="opcionLista opcionListaEvento5" id="/world-water-cicling-awards/red-carpet" onclick="redirectTo('/world-water-cicling-awards/red-carpet')">red-carpet</div>
+                         <div class="opcionLista opcionListaEvento5" id="/world-water-cicling-awards/tickets" onclick="redirectTo('/world-water-cicling-awards/tickets')">tickets</div>
+                         <div class="opcionLista opcionListaEvento5" id="/world-water-cicling-awards/awardees" onclick="redirectTo('/world-water-cicling-awards/awardees')">awardees</div>
+                         <div class="opcionLista opcionListaEvento5" id="/world-water-cicling-awards/about" onclick="redirectTo('/world-water-cicling-awards/about')">about</div>
+                    </div>
+                    <div class="LogoOption LogoEvento5"></div>
+                </div>
+                 
+            </div>
+        </div>
+        <div class="NavBarContainer MenuContainer" id="MenuContainer">
+            <div class="NavBarButton MenuButton" id="MenuButton" onclick="navOpenMenu()"></div>
+            <div class="NavBarOptions MenuOptions" id="MenuOptions">
+
+                <div class="OptionContainer MenuHome _home" id="MenuHome" onclick="openLista('MenuHome', 'top:13%')">
+                    <div class="ListaOption ListaMenuHome">
+                        <div class="opcionLista opcionListaMenuHome" id ="/home/intro" onclick="redirectTo('/home/intro')">intro</div>
+                        <div class="opcionLista opcionListaMenuHome" onclick="redirectTo('/home/world-premiere')" style="display:none;">world premiere</div>
+                        <div class="opcionLista opcionListaMenuHome" onclick="redirectTo('/home/innovation')" style="display:none;">innovation</div>
+                        <div class="opcionLista opcionListaMenuHome" onclick="redirectTo('/home/a-new-way')" style="display:none;">a new way</div>
+                        <div class="opcionLista opcionListaMenuHome" onclick="redirectTo('/home/gallery1')" style="display:none;">gallery1</div>
+                        <div class="opcionLista opcionListaMenuHome" onclick="redirectTo('/home/gallery2')" style="display:none;">gallery2</div>
+                    </div>
+                    <div class="LogoOption LogoMenuHome"></div>
+                </div>
+
+                <div class="OptionContainer MenuAboutUs _about-us" id="MenuAboutUs" onclick="openLista('MenuAboutUs', 'top:26%')">
+                    <div class="ListaOption ListaMenuAboutUs">
+                        <!--about-us, about-us-->
+                        <div class="opcionLista opcionListaMenuAboutUs" id="/about-us/the-voice-of" onclick="redirectTo('/about-us/the-voice-of')">the voice of</div>
+                        <div class="opcionLista opcionListaMenuAboutUs" id="/about-us/aquatica" onclick="redirectTo('/about-us/aquatica')">aquatica</div>
+                    </div>
+                    <div class="LogoOption LogoMenuAboutUs"></div>
+                </div>
+
+                <div class="OptionContainer MenuMedia _media" id="MenuMedia" onclick="openLista('MenuMedia', 'top:39%')">
+                    <div class="ListaOption ListaMenuMedia">
+                        <div class="opcionLista opcionListaMenuMedia" id="/media/news" onclick="redirectTo('/media/news')">news</div>
+                        <div class="opcionLista opcionListaMenuMedia" id="/media/press-release" onclick="redirectTo('/media/press-release')">press release</div>
+                        <div class="opcionLista opcionListaMenuMedia" id="/media/accreditations" onclick="redirectTo('/media/accreditations')">accreditations</div>
+                    </div>
+                    <div class="LogoOption LogoMenuMedia"></div>
+                </div>
+
+                <div class="OptionContainer MenuGalery _gallery" id="MenuGalery" onclick="openLista('MenuGalery', 'top:52%')">
+                    <div class="ListaOption ListaMenuGalery">
+                        <!--gallery, videos, photos-->
+                        <div class="opcionLista opcionListaMenuGalery" id="/gallery/photos" onclick="redirectTo('/gallery/photos')">photos</div>
+                    </div>
+                    <div class="LogoOption LogoMenuGalery"></div>
+                </div>
+
+                <div class="OptionContainer MenuCareers _careers" id="MenuCareers" onclick="openLista('MenuCareers', 'top:64%')">
+                    <div class="ListaOption ListaMenuCareers">
+                         <!--careers, sponsorship-raisers, promoters, instructors-->
+                        <div class="opcionLista opcionListaMenuCareers" id="/careers/sponsorship-raisers" onclick="redirectTo('/careers/sponsorship-raisers')">sponsorship raisers</div>
+                        <div class="opcionLista opcionListaMenuCareers" id="/careers/promoters" onclick="redirectTo('/careers/promoters')">promoters</div>
+                        <div class="opcionLista opcionListaMenuCareers" id="/careers/instructors" onclick="redirectTo('/careers/instructors')">instructors</div>
+                    </div>
+                    <div class="LogoOption LogoMenuCareers"></div>
+                </div>
+
+                <div class="OptionContainer MenuPartners _partners" id="MenuPartners" onclick="openLista('MenuPartners', 'bottom:36%')">
+                    <div class="ListaOption ListaMenuPartners">
+                        <div class="opcionLista opcionListaMenuPartners" id="/partners/donations" onclick="redirectTo('/partners/donations')">donations</div>
+                        <div class="opcionLista opcionListaMenuPartners" id="/partners/franchising" onclick="redirectTo('/partners/franchising')">franchising</div>
+                        <div class="opcionLista opcionListaMenuPartners" id="/partners/sponsors" onclick="redirectTo('/partners/sponsors')">sponsors</div>
+                    </div>
+                    <div class="LogoOption LogoMenuPartners"></div>
+                </div>
+
+                <div class="OptionContainer MenuContacts _contacts" id="MenuContacts" onclick="openLista('MenuContacts', 'bottom:23%')">
+                    <div class="ListaOption ListaMenuContacts">
+                        <!--contacts, contacts-->
+                        <div class="opcionLista opcionListaMenuContacts" id="/contacts/contacts" onclick="redirectTo('/contacts/contacts')">contacts</div>
+                   </div>
+                    <div class="LogoOption LogoMenuContacts"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </body>
+</html>

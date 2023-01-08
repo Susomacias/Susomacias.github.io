@@ -1,0 +1,25 @@
+.containerWorldPremiere{
+    width: 100%;
+    height: 100vh;
+}
+
+.worldPremiere-fondoViana{
+    background-image: url(./fondoViana.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.worldPremiere-columnaViana{
+    position:fixed;
+    top: 0;
+    right: -30%;
+    background-image: url(./columnaViana.jpg);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}

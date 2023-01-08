@@ -1,0 +1,124 @@
+:root {
+  --navBar: rgb(102, 255, 255);
+  --hoverNavBar: #2065c7;
+  --hoverOption: #2C84FF;
+}
+
+@media screen and (max-width: 800px){
+  .NavBar{
+    background-color: var(--navBar);
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  .NavBarContainer{
+    background-color: var(--navBar);
+    width: 100%;
+    height: 100%;
+  }
+
+  .NavBarOptions{
+    background-color: var(--navBar);
+    position: fixed;
+    bottom: 10vh;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /*********************BOTONES BARRA NAVEGACIÓN*********************/
+  .NavBarButton{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .SocialButton{
+    background-image: url(../../img/portada/IconSn.svg);
+  }
+
+  .HomeButton{
+    background-image: url(../../img/portada/IconHome.svg);
+  }
+
+  .MenuButton{
+    background-image: url(../../img/portada/IconHamburguesa.svg);
+  }
+
+  /*********************GRUPOS DE OPCIONES*********************/
+  .OptionContainer{
+    width: 100%;
+    height: 100%;
+  }
+
+  .SocialOptions{
+    height: 0;
+    transition: all 0.5s;
+  }
+
+  .HomeOptions{
+    height: 0;
+    transition: all 0.5s;
+  }
+
+  .MenuOptions{
+    height: 0;
+    transition: all 0.5s;
+  }
+
+  .OptionContainer{
+    font-size: 0;
+    text-align: center;
+    transition: all 0.5s;
+  }
+
+  /*********************OPCIONES*********************/
+  .ListaOption{
+    position: fixed;
+    width: 100%;
+  }
+
+  .opcionLista{
+    background-color: var(--hoverNavBar);
+  } 
+
+  .LogoOption{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:50%, 50%;
+  }
+
+  .Facebook {
+    background-image: url(../../img/portada/SnFacebook.svg);
+  }
+  
+  .Twitter {
+    background-image: url(../../img/portada/SnTwitter.svg);
+  }
+  
+  .TikTok {
+    background-image: url(../../img/portada/SnTicToc.svg);
+  }
+  
+  .YouTube {
+    background-image: url(../../img/portada/SnYouTube.svg);
+  }
+  
+  .Instagram {
+    background-image: url(../../img/portada/SnInstagram.svg);
+  }
+
+} 

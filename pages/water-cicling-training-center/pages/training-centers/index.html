@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WATER CICLING TRAINING CENTER - TRAINING CENTERS</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="./formulario.css" />
+  <link rel="stylesheet" href="../../../../CSS/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body ontouchmove="touchmove(event)">
+  <!-----------------------------ESCRITORIO----------------------------->
+  <main class="escritorio aboutContainer" id="aboutContainer">
+    <main class="locationsContainer">
+      <div class="sliderContainer2" id="sliderContainer2">
+        <div class="frameSlider2">
+
+          <main class="fondo">
+            <div class="titulo" id="titulo"></div>
+            <div class="logoVigo" id="logoVigo"></div>
+            <div class="containerFormulario" id="containerFormulario">
+              <form class="formulario" id="formulario" action="/mail.php" method="post">
+                <input type="hidden" name="asunto" value="TRAINING CENTERS">
+
+                <!--SELECT-->
+                <div class="marcoInput marcoInputSelect">
+                  <div class="icono"></div>
+                  <select id="try" name="try">
+                    <option value="SPAIN">TRY SPAIN</option>
+                    <option value="PORTUGAL">TRY PORTUGAL</option>
+                    <option value="BRAZIL">TRY BRAZIL</option>
+                    <option value="ANGOLA">TRY ANGOLA</option>
+                    <option value="EMIRATES">TRY EMIRATES</option>
+                    <option value="THAILAND">TRY THAILAND</option>
+                    <option value="PHILIPPINES">TRY PHILIPPINES</option>
+                  </select>
+                </div>
+
+                <!--INPUT DOBLE-->
+                <div class="inputDoble">
+                  <div class="marcoInput marcoInputDoble">
+                    <div class="etiquetaInput">FIRST NAME<span class="asterisco" id="firstNameW">*</span></div>
+                    <input type="text" placeholder="Your Answer" name="firstName" id="firstName" required>
+                  </div>
+                  <div class="marcoInput marcoInputDoble">
+                    <div class="etiquetaInput">LAST NAME<span class="asterisco" id="lastNameW">*</span></div>
+                    <input type="text" placeholder="Your Answer" name="lastName" id="lastName" required>
+                  </div>
+                </div>
+
+                <!--INPUT NORMAL-->
+                <div class="marcoInput marcoInputNormal">
+                  <div class="etiquetaInput">EMAIL ADDRESS<span class="asterisco" id="emailW">*</span></div>
+                  <input type="email" placeholder="Your Answer" name="email" id="email" required>
+                </div>
+
+                <!--RADIO-->
+                <div class="marcoInput marcoInputRadio">
+                  <div class="columnsRadio">
+                    <div class="columnaInputRadio">
+                      <div class="radioContainer">
+                        <input type="radio" id="radioA" name="type" value="practice" checked>
+                        <label class="labelRadio" for="radioA">PRACTICE</label><br>
+                      </div>
+                    </div>
+
+                    <div class="columnaInputRadio">
+                      <div class="radioContainer">
+                        <input type="radio" id="radioC" name="type" value="rental">
+                        <label class="labelRadio" for="radioC">RENTAL</label><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--INPUT CON WARNING-->
+                <div class="marcoInput marcoInputConWarning">
+                  <div class="etiquetaInput">MESSAGE<span class="asterisco" id="messageW">*</span></div>
+                  <textarea type="text" placeholder="Your Answer" name="message" id="message" row="3"
+                    required></textarea>
+                  <div class="warning" id="warning"></div>
+                </div>
+
+                <!--BOTON-->
+                <input class="boton" type="submit" onclick="checkSubmit(['firstName', 'lastName', 'email', 'message'])">
+              </form>
+            </div>
+          </main>
+
+        </div>
+        <div class="frameSlider2">
+
+          <div class="fondoViana">
+            <div class="columna"></div>
+            <div class="textoContainer">
+              <div class="textoLocation">CABELO RIVER OUTFALL - PORTUGAL</div>
+              <span class="location"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="buttonSliderContainer2">
+        <div class="buttonSlider2" id="button1" onclick="goFrame(1)"></div>
+        <div class="buttonSlider2" id="button2" onclick="goFrame(2)"></div>
+      </div>
+    </main>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      sizeElements();
+      //------------------------------
+
+      function goFrame(frame) {
+        switch (frame) {
+          case 2:
+            document.getElementById('sliderContainer2').style.transform = 'translateX(-50%)';
+            document.getElementById('button1').style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            document.getElementById('button2').style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            break;
+
+          default:
+            document.getElementById('sliderContainer2').style.transform = 'translateX(0)'
+            document.getElementById('button2').style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            document.getElementById('button1').style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            break;
+        }
+      }
+
+      function checkSubmit(inputs) {
+        for (let input of inputs) {
+          let campo = document.getElementById(input).value;
+          if (campo === "") {
+            document.getElementById(input + "W").style.display = 'inline';
+            document.getElementById('warning').style.display = 'block';
+          }
+        }
+      }
+
+      async function sizeElements() {
+        let heightTitulo = await getProportionalHeight("titulo");
+        let logoVigo = 10;
+        let containerFormulario = 100 - heightTitulo - logoVigo - 10;
+        document.getElementById("titulo").style.height = heightTitulo + "%";
+        document.getElementById("logoVigo").style.height = logoVigo + "%";
+        document.getElementById("containerFormulario").style.height = containerFormulario + "%";
+
+        const body = document.getElementsByTagName("body")[0];
+
+        let resizeObserver = new ResizeObserver(() => {
+          let containerFormulario = document.getElementById("containerFormulario");
+          let formulario = document.getElementById("formulario");
+          if (containerFormulario.getBoundingClientRect().height !== formulario.offsetHeight) {
+            let escala = containerFormulario.getBoundingClientRect().height / formulario.offsetHeight;
+            formulario.style.transform = "scale(" + escala + ")";
+          }
+        });
+
+        resizeObserver.observe(body);
+      }
+
+      async function getProportionalHeight(imageName) {
+        let size = await getSizeSvg(imageName);
+        let imageHeight = parseFloat(size[1]);
+        let imageWidth = parseFloat(size[0]);
+        let containerHeight = document.getElementById("aboutContainer").offsetHeight;
+        let containerWidth = document.getElementById("aboutContainer").offsetWidth;
+
+        // Calcula la relación de aspecto de la imagen
+        let aspectRatio = imageHeight / imageWidth;
+
+        // Calcula el alto de la imagen en proporción al ancho de la pantalla
+        let height = aspectRatio * containerWidth;
+
+        // Calcula el porcentaje del alto de la imagen con respecto al alto de la pantalla
+        let percentage = (height / containerHeight) * 100;
+        return percentage + 0.5;
+      }
+
+      function getSizeSvg(imageName) {
+        return new Promise((resolve, reject) => {
+          fetch("./" + imageName + ".svg")
+            .then((response) => response.text())
+            .then((text) => {
+              // Busca las propiedades height y width en el código del archivo
+              const heightMatch = text.match(/height="([^"]+)"/);
+              const widthMatch = text.match(/width="([^"]+)"/);
+              if (heightMatch && widthMatch) {
+                const height = heightMatch[1];
+                const width = widthMatch[1];
+                resolve([width, height]);
+              } else {
+                console.error(
+                  "No se encontraron las propiedades height y width en el archivo SVG"
+                );
+                reject(
+                  new Error(
+                    "No se encontraron las propiedades height y width en el archivo SVG"
+                  )
+                );
+              }
+            });
+        });
+      }
+    }
+  </script>
+
+  <!-----------------------------MOVIL----------------------------->
+  <main class="movil aboutContainer" id="aboutContainer">
+    <main class="locationsContainer">
+      <div class="sliderContainer2" id="sliderContainer2">
+        <div class="frameSlider2">
+
+          <main class="fondo">
+            <div class="titulo" id="titulo"></div>
+            <div class="logoVigo" id="logoVigo"></div>
+            <div class="containerFormulario" id="containerFormulario">
+              <form class="formulario" id="formulario" action="/mail.php" method="post">
+                <input type="hidden" name="asunto" value="TRAINING CENTERS">
+
+                <!--SELECT-->
+                <div class="marcoInput marcoInputSelect">
+                  <div class="icono"></div>
+                  <select id="try" name="try">
+                    <option value="SPAIN">TRY SPAIN</option>
+                    <option value="PORTUGAL">TRY PORTUGAL</option>
+                    <option value="BRAZIL">TRY BRAZIL</option>
+                    <option value="ANGOLA">TRY ANGOLA</option>
+                    <option value="EMIRATES">TRY EMIRATES</option>
+                    <option value="THAILAND">TRY THAILAND</option>
+                    <option value="PHILIPPINES">TRY PHILIPPINES</option>
+                  </select>
+                </div>
+
+                <!--INPUT DOBLE-->
+                <div class="inputDoble">
+                  <div class="marcoInput marcoInputDoble">
+                    <div class="etiquetaInput">FIRST NAME<span class="asterisco" id="firstNameW">*</span></div>
+                    <input type="text" placeholder="Your Answer" name="firstName" id="firstName" required>
+                  </div>
+                  <div class="marcoInput marcoInputDoble">
+                    <div class="etiquetaInput">LAST NAME<span class="asterisco" id="lastNameW">*</span></div>
+                    <input type="text" placeholder="Your Answer" name="lastName" id="lastName" required>
+                  </div>
+                </div>
+
+                <!--INPUT NORMAL-->
+                <div class="marcoInput marcoInputNormal">
+                  <div class="etiquetaInput">EMAIL ADDRESS<span class="asterisco" id="emailW">*</span></div>
+                  <input type="email" placeholder="Your Answer" name="email" id="email" required>
+                </div>
+
+                <!--RADIO-->
+                <div class="marcoInput marcoInputRadio">
+                  <div class="columnsRadio">
+                    <div class="columnaInputRadio">
+                      <div class="radioContainer">
+                        <input type="radio" id="radioA" name="type" value="practice" checked>
+                        <label class="labelRadio" for="radioA">PRACTICE</label><br>
+                      </div>
+                    </div>
+
+                    <div class="columnaInputRadio">
+                      <div class="radioContainer">
+                        <input type="radio" id="radioC" name="type" value="rental">
+                        <label class="labelRadio" for="radioC">RENTAL</label><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--INPUT CON WARNING-->
+                <div class="marcoInput marcoInputConWarning">
+                  <div class="etiquetaInput">MESSAGE<span class="asterisco" id="messageW">*</span></div>
+                  <textarea type="text" placeholder="Your Answer" name="message" id="message" row="3"
+                    required></textarea>
+                  <div class="warning" id="warning"></div>
+                </div>
+
+                <!--BOTON-->
+                <input class="boton" type="submit" onclick="checkSubmit(['firstName', 'lastName', 'email', 'message'])">
+              </form>
+            </div>
+          </main>
+
+        </div>
+        <div class="frameSlider2">
+
+          <div class="fondoViana">
+            <div class="columna"></div>
+            <div class="textoContainer">
+              <div class="textoLocation">CABELO RIVER OUTFALL - PORTUGAL</div>
+              <span class="location"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="buttonSliderContainer2">
+        <div class="buttonSlider2" id="button1" onclick="goFrame(1)"></div>
+        <div class="buttonSlider2" id="button2" onclick="goFrame(2)"></div>
+      </div>
+    </main>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      let scripts = document.getElementsByClassName("movil");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+    }
+
+    if (window.innerWidth < 800 || window.innerWidth === 800) {
+      let link = document.querySelector("link[href='./formulario.css']");
+      link.href = "./formulario_800.css";
+
+      let scripts = document.getElementsByClassName("escritorio");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //------------------------------
+    }
+  </script>
+
+  <!----------------------------- GENERAL ----------------------------->
+  <script>
+    if (window.top == window) {
+      window.top.location = "/";
+    }
+
+    function touchmove(ev) {
+      window.parent.frameTouchMove(ev, 1, 4, "/water-cicling-training-center/training-centers");
+    }
+  </script>
+</body>

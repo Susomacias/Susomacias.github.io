@@ -1,0 +1,128 @@
+.locationsContainer{
+    width: 200%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: all 0.5s;
+}
+
+.sliderContainer2{
+    width: 200%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.frameSlider2{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.buttonSliderContainer2{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonSlider2{
+    background-color: white;
+    border-radius: 50px;
+    opacity: 0.7;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#button1{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+.location{
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.logoLocation{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.fotoLocation{
+    width: 0%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.flecha{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flecha img{
+    width: 60%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.logoBaiona{
+    background-image: url(./img/logoBaiona.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 90%;
+}
+
+.fotoBaiona{
+    background-image: url(./img/fotoBaiona.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.logoViana{
+   background-image: url(./img/logoViana.png);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+   width: 90%;
+
+}
+
+.fotoViana{
+    background-image: url(./img/fotoViana.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}

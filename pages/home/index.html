@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="/CSS/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <script src="/func/sliderContainer.js"></script>
+</head>
+
+<body onload="router()">
+  <div class="buttonSliderContainer buttonSliderVisible">
+    <div class="buttonSlider" id="/home/intro" onclick="changeUrl('/home/intro', 0, 6)"></div>
+    <div class="buttonSlider" id="/home/world-premiere" onclick="changeUrl('/home/world-premiere', 1, 6)"></div>
+    <div class="buttonSlider" id="/home/innovation" onclick="changeUrl('/home/innovation', 2, 6)"></div>
+    <div class="buttonSlider" id="/home/a-new-way" onclick="changeUrl('/home/a-new-way', 3, 6)"></div>
+    <div class="buttonSlider" id="/home/gallery1" onclick="changeUrl('/home/gallery1', 4, 6)"></div>
+    <div class="buttonSlider" id="/home/gallery2" onclick="changeUrl('/home/gallery2', 5, 6)"></div>
+  </div>
+
+  <main class="sliderContainer" id="sliderContainer" style="width:600%">
+    <iframe class="subPages" src="/pages/home/pages/intro"></iframe>
+    <iframe class="subPages" src="/pages/home/pages/world-premiere"></iframe>
+    <iframe class="subPages" src="/pages/home/pages/innovation"></iframe>
+    <iframe class="subPages" src="/pages/home/pages/a-new-way"></iframe>
+    <iframe class="subPages" src="/pages/home/pages/gallery1"></iframe>
+    <iframe class="subPages" src="/pages/home/pages/gallery2"></iframe>
+  </main>
+  
+</body>
+<script>
+
+  let pages = [
+    '/home/intro',
+    '/home/world-premiere',
+    '/home/innovation',
+    '/home/a-new-way',
+    '/home/gallery1',
+    '/home/gallery2',
+  ];
+
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+
+  clickPages();
+  setInterval('clickPages()',94000 + (3000*6));
+
+  async function clickPages(){
+    await delay(3000);
+    let a = document.getElementById(pages[0]);
+    a.onclick();
+    await delay(3000);
+    a = document.getElementById(pages[1]);
+    a.onclick();
+    await delay(3000);
+    a = document.getElementById(pages[2]);
+    a.onclick();
+    await delay(3000);
+    a = document.getElementById(pages[3]);
+    a.onclick();
+    await delay(3000);
+    a = document.getElementById(pages[4]);
+    a.onclick();
+    await delay(3000);
+    a = document.getElementById(pages[5]);
+    a.onclick();
+    await delay(94000);
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABOUT US - THE VOICE OF</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="../../../../CSS/index.css" />
+  <link rel="stylesheet" href="./locations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body ontouchmove="touchmove(event)">
+  <!-----------------------------ESCRITORIO----------------------------->
+  <main class="escritorio locationsContainer">
+    <div class="location" id="locationVoice">
+      <div class="logoLocation logoVoice" id="logoVoice"></div>
+      <div class="flecha" id="flechaVoice">
+        <img src="./img/IconoFlecha.svg" alt="" id="flechaImgVoice" onclick="showFoto('Voice')">
+      </div>
+      <div class="fotoLocation fotoVoice" id="fotoVoice"></div>
+    </div>
+  </main>
+
+  <script class="escritorio">
+    if (window.innerWidth > 800) {
+      //----------------------
+      function showFotoDestock(location) {
+        let container = document.getElementById("location" + location);
+        let logo = document.getElementById("logo" + location);
+        let foto = document.getElementById("foto" + location);
+        let flecha = document.getElementById("flecha" + location);
+        let flechaImg = document.getElementById("flechaImg" + location);
+
+        if (container.style.width == "" || container.style.width != "100%") {
+          container.style.width = "100%";
+          logo.style.width = "33%";
+          foto.style.width = "calc(65% - 40px)";
+          flecha.style.width = "2%";
+          flechaImg.style.transform = "rotate(180deg)";
+        } else {
+          container.style.width = "30%";
+          logo.style.width = "100%";
+          foto.style.width = "0";
+          flecha.style.width = "10%";
+          flechaImg.style.transform = "rotate(0deg)";
+        }
+      }
+
+      function showFotoMovile(location) {
+        let logo = document.getElementById("logo" + location);
+        let foto = document.getElementById("foto" + location);
+        let flecha = document.getElementById("flecha" + location);
+        let flechaImg = document.getElementById("flechaImg" + location);
+
+        if (foto.style.height == "" || foto.style.height != "73vh") {
+          logo.style.height = "25vh";
+          foto.style.height = "73vh";
+          flechaImg.style.transform = "rotate(270deg)";
+        } else {
+          logo.style.height = "100%";
+          foto.style.height = "0";
+          flechaImg.style.transform = "rotate(90deg)";
+        }
+      }
+
+      function showFoto(location) {
+        var width = window.innerWidth;
+
+        if (width > 800) {
+          showFotoDestock(location);
+        } else {
+          showFotoMovile(location);
+        }
+      }
+    }
+  </script>
+
+  <!-----------------------------MOVIL----------------------------->
+  <main class="movil locationsContainer">
+    <div class="location" id="locationVoice">
+      <div class="logoLocation logoVoice" id="logoVoice"></div>
+      <div class="flecha" id="flechaVoice">
+        <img src="./img/IconoFlecha.svg" alt="" id="flechaImgVoice" onclick="showFoto('Voice')">
+      </div>
+      <div class="fotoLocation fotoVoice" id="fotoVoice"></div>
+    </div>
+  </main>
+
+  <script class="movil">
+    if (window.innerWidth > 800) {
+      let link = document.querySelector("link[href='./locations_800.css']");
+      link.href = "./locations.css";
+
+      let scripts = document.getElementsByClassName("movil");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+    }
+
+    if (window.innerWidth < 800 || window.innerWidth === 800) {
+      let link = document.querySelector("link[href='./locations.css']");
+      link.href = "./locations_800.css";
+
+      let scripts = document.getElementsByClassName("escritorio");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //---------------------------
+    }
+  </script>
+
+  <!----------------------------- GENERAL ----------------------------->
+  <script>
+    if (window.top == window) {
+      window.top.location = "/";
+    }
+    function touchmove(ev) {
+      window.parent.frameTouchMove(ev, 1, 2);
+    }
+  </script>
+
+</body>
+
+</html>

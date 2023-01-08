@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HALL OF FAME - SPORT LEGENDS</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="../../../../CSS/index.css" />
+  <link rel="stylesheet" href="./sportLeginds.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body ontouchmove="touchmove(event)">
+  <!-----------------------------ESCRITORIO----------------------------->
+  <main class="escritorio legendsContainer">
+    <div class="titulo"></div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      //------------------------------
+    }
+  </script>
+
+  <!-----------------------------MOVIL----------------------------->
+  <main class="movil legendsContainer">
+    <div class="titulo"></div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      let scripts = document.getElementsByClassName("movil");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //------------------------------
+    }
+
+    if (window.innerWidth < 800 || window.innerWidth === 800) {
+      let link = document.querySelector("link[href='./sportLeginds.css']");
+      link.href = "./sportLeginds_800.css";
+
+      let scripts = document.getElementsByClassName("escritorio");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //------------------------------
+    }
+  </script>
+
+  <!----------------------------- GENERAL ----------------------------->
+  <script>
+    if (window.top == window) {
+      window.top.location = "/";
+    }
+    function touchmove(ev) {
+      window.parent.frameTouchMove(ev, 1, 2);
+    }
+  </script>
+</body>

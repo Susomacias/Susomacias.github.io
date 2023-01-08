@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WORLD WATER CICLING AWARDS - ABOUT</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="../../../../CSS/index.css" />
+  <link rel="stylesheet" href="./about.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body ontouchmove="touchmove(event)" onload="sizeElements()">
+  <!-----------------------------ESCRITORIO----------------------------->
+  <main class="escritorio aboutContainer" id="aboutContainer">
+    <div class="about-aquaticaLogo"></div>
+    <div class="about-logo" id="about-logo"></div>
+    <div class="about-texto" id="about-texto"></div>
+    <div class="about-frase" id="about-frase"></div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      sizeElements();
+      //------------------------------
+      async function sizeElements() {
+        let heightFrase = await getProportionalHeight("frase");
+        let heightTexto = await getProportionalHeight("texto");
+        let heightLogoAquatica = 18;
+        let heightLogo = 100 - heightLogoAquatica - heightTexto - heightFrase - 10;
+
+        document.getElementById("about-logo").style.height = heightLogo + "%";
+        document.getElementById("about-texto").style.height = heightTexto + "%";
+        document.getElementById("about-frase").style.height = heightFrase + "%";
+      }
+
+      async function getProportionalHeight(imageName) {
+        let size = await getSizeSvg(imageName);
+        let imageHeight = parseFloat(size[1]);
+        let imageWidth = parseFloat(size[0]);
+        let containerHeight = document.getElementById("aboutContainer").offsetHeight;
+        let containerWidth = document.getElementById("aboutContainer").offsetWidth;
+
+        // Calcula la relación de aspecto de la imagen
+        let aspectRatio = imageHeight / imageWidth;
+
+        // Calcula el alto de la imagen en proporción al ancho de la pantalla
+        let height = aspectRatio * containerWidth;
+
+        // Calcula el porcentaje del alto de la imagen con respecto al alto de la pantalla
+        let percentage = (height / containerHeight) * 100;
+        return percentage + 0.5;
+      }
+
+      function getSizeSvg(imageName) {
+        return new Promise((resolve, reject) => {
+          fetch("./" + imageName + ".svg")
+            .then((response) => response.text())
+            .then((text) => {
+              // Busca las propiedades height y width en el código del archivo
+              const heightMatch = text.match(/height="([^"]+)"/);
+              const widthMatch = text.match(/width="([^"]+)"/);
+              if (heightMatch && widthMatch) {
+                const height = heightMatch[1];
+                const width = widthMatch[1];
+                resolve([width, height]);
+              } else {
+                console.error(
+                  "No se encontraron las propiedades height y width en el archivo SVG"
+                );
+                reject(
+                  new Error(
+                    "No se encontraron las propiedades height y width en el archivo SVG"
+                  )
+                );
+              }
+            });
+        });
+      }
+    }
+  </script>
+
+  <!-----------------------------MOVIL----------------------------->
+  <main class="movil aboutContainer" id="aboutContainer">
+    <div class="about-aquaticaLogo"></div>
+    <div class="about-logo" id="about-logo"></div>
+    <div class="about-texto" id="about-texto"></div>
+    <div class="about-frase" id="about-frase"></div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      let scripts = document.getElementsByClassName("movil");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+    }
+
+    if (window.innerWidth < 800 || window.innerWidth === 800) {
+      let link = document.querySelector("link[href='./about.css']");
+      link.href = "./about_800.css";
+
+      let scripts = document.getElementsByClassName("escritorio");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //------------------------------
+    }
+  </script>
+
+  <!----------------------------- GENERAL ----------------------------->
+  <script>
+    if (window.top == window) {
+      window.top.location = "/";
+    }
+    function touchmove(ev) {
+      window.parent.frameTouchMove(ev, 0, 5);
+    }
+  </script>
+</body>

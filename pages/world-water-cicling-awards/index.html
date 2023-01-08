@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Global WatersPort</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/CSS/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="/func/sliderContainer.js"></script>
+  </head>
+  <body onload="router()">
+    <div class="buttonSliderContainer">
+        <div class="buttonSlider" id="/world-water-cicling-awards/about" onclick="changeUrl('/world-water-cicling-awards/about', 0, 5)"></div>
+        <div class="buttonSlider" id="/world-water-cicling-awards/awardees" onclick="changeUrl('/world-water-cicling-awards/awardees', 1, 5)"></div>
+        <div class="buttonSlider" id="/world-water-cicling-awards/tickets" onclick="changeUrl('/world-water-cicling-awards/tickets', 2, 5)"></div>
+        <div class="buttonSlider" id="/world-water-cicling-awards/red-carpet" onclick="changeUrl('/world-water-cicling-awards/red-carpet', 3, 5)"></div>
+        <div class="buttonSlider" id="/world-water-cicling-awards/sponsors" onclick="changeUrl('/world-water-cicling-awards/sponsors', 4, 5)"></div>
+    </div>
+    <main class="sliderContainer" id="sliderContainer" style="width:500%">
+        <iframe class="subPages" src="/pages/world-water-cicling-awards/pages/about"></iframe>
+        <iframe class="subPages" src="/pages/world-water-cicling-awards/pages/awardees"></iframe>
+        <iframe class="subPages" src="/pages/world-water-cicling-awards/pages/tickets"></iframe>
+        <iframe class="subPages" src="/pages/world-water-cicling-awards/pages/red-carpet"></iframe>
+        <iframe class="subPages" src="/pages/world-water-cicling-awards/pages/sponsors"></iframe>
+    </main>
+  </body>
+</html>

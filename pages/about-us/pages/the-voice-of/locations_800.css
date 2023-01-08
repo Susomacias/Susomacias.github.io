@@ -1,0 +1,63 @@
+.locationsContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.location{
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logoLocation{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.fotoLocation{
+    width: 0%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.flecha{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flecha img{
+    width: 60%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.logoVoice{
+    background-image: url(./img/logoVoice.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 90%;
+}
+
+.fotoVoice{
+    background-image: url(./img/fotoVoice.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}

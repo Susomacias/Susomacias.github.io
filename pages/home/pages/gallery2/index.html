@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME - GALLERY</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="../../../../CSS/index.css" />
+  <link rel="stylesheet" href="./carrusel.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body ontouchmove="touchmove(event)">
+  <!-----------------------------ESCRITORIO----------------------------->
+  <main class="escritorio contenidoCarrusel">
+    <div class="carrusel">
+      <div class="contenedorImagenCarrusel">
+        <div class="imagenCarrusel">
+          <video autoplay muted loop controls class="imagenCarruselTag" id="0"><source src="./img/video.mp4" type="video/mp4"></video>
+        </div>
+        <div class="textoImagenCarrusel"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      //------------------------------
+      const pages = [
+        'flechaDerecha',
+        'flechaIzquerda'
+      ];
+
+      const delay = ms => new Promise(res => setTimeout(res, ms));
+
+      //checkUrlAndAnimate()
+      //setInterval('checkUrlAndAnimate()', 14000);
+
+      async function checkUrlAndAnimate() {
+        let url = window.location.href;
+        if (url.includes("gallery")) {
+          await clickPages();
+        }
+      }
+
+      async function clickPages() {
+        await delay(6000);
+        let a = document.getElementById(pages[0]);
+        a.onclick();
+        await delay(10000);
+        a = document.getElementById(pages[1]);
+        a.onclick();
+      }
+
+      let imagesArray = [];
+      imagesArray[1] = ["./img/video.mp4", "video", ""];
+
+      //añadir imagen 0 a imagenCarrusel
+      let imagenCarrusel = document.querySelector(".imagenCarrusel");
+
+      let type = imagesArray[0][1];
+      if (type == "img") {
+        imagenCarrusel.innerHTML = `<img class=imagenCarruselTag src="${imagesArray[0][0]}" id="0" alt="${imagesArray[0][2]}" />`;
+      }
+      if (type == "video") {
+        imagenCarrusel.innerHTML = `<video autoplay muted loop controls class=imagenCarruselTag id="0"><source src="${imagesArray[0][0]}" type="video/mp4"></video>`;
+      }
+      let textoImagenCarrusel = document.querySelector(".textoImagenCarrusel");
+      textoImagenCarrusel.innerHTML = imagesArray[0][2];
+
+      let flechaIzquerda = document.querySelector(".flechaIzquerda");
+      flechaIzquerda.style.display = "none";
+
+      function changeImage(direction) {
+
+        let flechaIzquerda = document.querySelector(".flechaIzquerda");
+        let flechaDerecha = document.querySelector(".flechaDerecha");
+
+        let imagenCarruselTag = document.querySelector(".imagenCarruselTag");
+        let textoImagenCarrusel = document.querySelector(".textoImagenCarrusel");
+        let id = imagenCarruselTag.id;
+        id = parseInt(id);
+
+        if (direction == "right") { imageArray = imagesArray[id + 1]; id = id + 1; }
+        if (direction == "left") { imageArray = imagesArray[id - 1]; id = id - 1; }
+
+        if (id > 0) {
+          flechaIzquerda.style.display = "block";
+        } else {
+          flechaIzquerda.style.display = "none";
+        }
+
+        if (id == imagesArray.length - 1) {
+          flechaDerecha.style.display = "none";
+        } else {
+          flechaDerecha.style.display = "block";
+        }
+
+        let type = imagesArray[id][1];
+        if (type == "img") {
+          imagenCarrusel.innerHTML = `<img class="imagenCarruselTag" src="${imageArray[0]}" id="${id}" alt="${imageArray[2]}" />`;
+          textoImagenCarrusel.innerHTML = imageArray[2];
+        }
+
+        if (type == "video") {
+          imagenCarrusel.innerHTML = `<video autoplay muted loop controls class="imagenCarruselTag" id="${id}"><source src="${imageArray[0]}" type="video/mp4"></video>`;
+          textoImagenCarrusel.innerHTML = imageArray[2];
+        }
+      }
+    }
+  </script>
+
+  <!-----------------------------MOVIL----------------------------->
+  <main class="movil contenidoCarrusel">
+    <div class="carrusel">
+      <div class="contenedorImagenCarrusel">
+        <div class="imagenCarrusel"></div>
+        <div class="textoImagenCarrusel"></div>
+      </div>
+    </div>
+
+    <div class="flechas">
+      <div class="flechaIzquerda" id="flechaIzquerda" onclick="changeImage('left')"></div>
+      <div class="flechaDerecha" id="flechaDerecha" onclick="changeImage('right')"></div>
+    </div>
+  </main>
+
+  <script>
+    if (window.innerWidth > 800) {
+      let scripts = document.getElementsByClassName("movil");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+    }
+
+    if (window.innerWidth < 800 || window.innerWidth === 800) {
+      let link = document.querySelector("link[href='./carrusel.css']");
+      link.href = "./carrusel_800.css";
+
+      let scripts = document.getElementsByClassName("escritorio");
+      let scriptsDefer = Array.prototype.map.call(scripts, function (script) {
+        script.setAttribute("style", "display: none");
+        return script;
+      });
+      //------------------------------
+    }
+  </script>
+
+  <!----------------------------- GENERAL ----------------------------->
+  <script>
+    if (window.top == window) {
+      window.top.location = "/";
+    }
+    function touchmove(ev) {
+      window.parent.frameTouchMove(ev, 4, 6);
+    }
+  </script>
+</body>

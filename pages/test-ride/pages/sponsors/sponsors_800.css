@@ -1,0 +1,110 @@
+body{
+    background-color: rgb(137, 218, 227);
+    width: 100%;
+}
+
+.posicion{
+    position: relative; 
+    top: 0;
+    z-index: 1;
+}
+
+.sponsorsContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo{
+    background-image: url(./sponsors.svg);
+    width: calc(100% - 38px);
+    height:29.5vh;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: top;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    margin-bottom: 3vh;
+    margin-top: 16px;
+}
+
+/*##################GALERÍA##################*/
+.galeria{
+    width: 100%;
+    height: 47vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+
+.sponsor{
+    width: 100%;
+    transition: all 0.5s;
+    background-size: cover;
+    background-position: center;
+}
+
+.sponsor:hover{
+    transform: scale(1.3);
+    z-index: 1;
+    box-shadow: 0 0 10px #000;
+}
+
+/*media query 800px*/
+@media screen and (max-width: 800px){
+    .galeria{
+        /*display responsive grid layaut*/
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1vh;
+        height: auto;
+    }
+}
+
+/*###############CIFRAS###############*/
+.cifras{
+    width: 100%;
+    height: 18vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.cifra{
+    font-family: 'Anton', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+    font-size: 340%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-height: 18vh;
+}
+
+.textoCifra{
+    margin-top: 1vh;
+    margin-bottom: -25px;
+}
+
+
+/*media query 800px*/
+@media screen and (max-width: 800px){
+    .cifras{
+        /*display responsive grid layaut*/
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1vh;
+    }
+    
+    .cifra{
+        height: 150px !important;
+    }
+}

@@ -1,0 +1,42 @@
+.successContainer{
+    margin-top: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.icon{
+    transform: scale(3);
+}
+
+.successTitulo{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+
+}
+
+.successText{
+    width: 90%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.homeLogo{
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin-top: 5rem;
+
+}
+
+.homeLogo img{
+    width: 100%;
+    height: auto;
+
+}

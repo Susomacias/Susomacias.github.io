@@ -1,0 +1,56 @@
+.containerCookiesText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:10vh;
+    margin-bottom: 10vh;
+}
+
+.containerCookiesText-logoAquatica{
+    background-image: url('/pages/cookies/logoAquatica.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 10vh;
+    width: 100%; 
+    margin-bottom: 10vh;
+    cursor: pointer;
+}
+
+.containerCookiesText-texto{
+    background-image: url('/pages/cookies/Recurso83.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 500vh;
+    width: 100%;
+    position: relative;
+}
+
+.enlace{
+    width: 20%;
+    height:3vh;
+    cursor: pointer;
+}
+
+.enlace1{
+    position: absolute;
+    transform: translate(200%, 5650%);
+}
+
+.enlace2{
+    position: absolute;
+    transform: translate(200%, 11650%);
+}
+
+.enlace3{
+    position: absolute;
+    transform: translate(200%, 12950%);
+}
+
+.enlace4{
+    position: absolute;
+    transform: translate(70%, 16600%);
+    width: 25%;
+}

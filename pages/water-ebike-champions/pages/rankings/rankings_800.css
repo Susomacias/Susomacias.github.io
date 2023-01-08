@@ -1,0 +1,83 @@
+.rankingsContainer{
+    background-image: url('./fondo.JPG');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.rankingsTitulo{
+    background-image: url('./Recurso52.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: top;
+    width: calc(100% - 36px);
+    background-size: contain;
+    height: 59vh;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    margin-top: 12px;
+}
+
+.rankingsBotonesContainer{
+    margin-top: 2%;
+    width: 100%;
+    height: 42vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.botonGeneral{
+    width: 100%;
+    margin-bottom:1%;
+    height: 15%;
+    background-image: url('./Recurso53.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    cursor:pointer;
+}
+
+.botonCounty{
+    width: 100%;
+    margin-bottom:1%;
+    height: 15%;
+    background-image: url('./Recurso54.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    cursor:pointer;
+}
+
+.botonIndividual{
+    width: 100%;
+    margin-bottom:1%;
+    height: 15%;
+    background-image: url('./Recurso55.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    cursor:pointer;
+}
+
+.botonTeam{
+    width: 100%;
+    margin-bottom:1%;
+    height: 15%;
+    background-image: url('./Recurso56.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    cursor:pointer;
+}

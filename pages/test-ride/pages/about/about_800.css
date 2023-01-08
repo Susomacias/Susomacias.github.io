@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(137, 218, 227) !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.aboutContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items:center;
+    width:calc(100% - 31px);
+    height:calc(100vh - 70px);
+    margin-top: 50px;
+}
+
+.about-aquaticaLogo{
+    background-image: url('./logoAquatica.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: bottom, center;
+    width: 100%;
+    height: 22%;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+}
+
+.about-logo{
+    background-image: url('./logo.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    width: 100%;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    margin-top: 2%;
+}
+
+.about-texto{
+    background-image: url('./texto.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    width: 100%;
+    margin-top: 1.5%;
+}
+
+.about-frase{
+    background-image: url('./frase.svg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: bottom, center;
+    width: 100%;
+    filter: drop-shadow( 1px 8px 2px rgba(0,0,0,0.4));
+    margin-top: 1.5%;
+}
